@@ -1,0 +1,14 @@
+Resources:
+  TestInstance1:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      AvailabilityZone: ap-south-1a
+      ImageId: ami-02eb7a4783e7e9317
+      InstanceType: t2.micro
+      Tags:
+        - Key: Name
+          Value: docker-app-wordpress
+      SubnetId: subnet-fc0ba095
+      SecurityGroupIds:
+        - sg-0fab3eb00d74fcc76
+      KeyName: omkar_aws

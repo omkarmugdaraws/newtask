@@ -1,3 +1,6 @@
+Cloud formation ECS cluster service with ec2
+
+
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "The template used to create an ECS Service from the ECS Console.",
@@ -30,7 +33,7 @@
         "Cluster": "docker-app-cluster",
         "TaskDefinition": "arn:aws:ecs:us-east-1:555013771715:task-definition/docker-app-TD:4",
         "LaunchType": "EC2",
-        "ServiceName": "docker-app-service-ec2",
+        "ServiceName": "docker-app-ec2-service-test",
         "SchedulingStrategy": "REPLICA",
         "DesiredCount": 1,
         "NetworkConfiguration": {
