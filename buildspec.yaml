@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands: 
+      - echo logging in to AMAZON ECR
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 555013771715.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo building docker images
+      #- old_image_version=`docker images |grep 555013771715.dkr.ecr.us-east-1.amazonaws.com/docker-application|awk -F " " '{print $2}'|tail -1`
+      #- new_image_version=$(expr $old_image_version + 1)
+      - docker build -t 555013771715.dkr.ecr.us-east-1.amazonaws.com/docker-application:4 .
+  post_build:
+    commands:
+      - echo Pushing docker image
+      - docker push 555013771715.dkr.ecr.us-east-1.amazonaws.com/docker-application:4
